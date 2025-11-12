@@ -4,8 +4,10 @@ modules = [
   "bash",
   "btop",
   "celluloid",
+  "codium",
   "direnv",
   "faugus-launcher",
+  "flatpak",
   "gamemode",
   "gamescope",
   "git",
@@ -16,7 +18,6 @@ modules = [
   "mangohud",
   "nautilus",
   "ncdu",
-  "network-manager",
   "nh",
   "nix",
   "nix-health",
@@ -24,16 +25,12 @@ modules = [
   "obs",
   "proton-launch",
   "sd-inhibitor",
-  "solaar",
   "ssh",
   "steam",
   "sunshine",
   "toolset",
-  "wg-quick",
   "zed",
   "zen",
-  "zenergy",
-  "zenstates",
   "zsh",
 ]
 
@@ -48,7 +45,6 @@ modules = [
   "disable-ipv6",
   "graphics",
   "kernel",
-  "mesa-unstable",
   "monitors",
   "mounts",
   "pipewire",
@@ -61,7 +57,7 @@ modules = [
 ]
 
 [[icedos.repositories]]
-url = "github:icedos/hyprland"
+url = "github:icedos/gnome"
 
 [[icedos.repositories]]
 url = "github:icedos/tweaks"
@@ -78,30 +74,47 @@ modules = ["chaotic"]
 defaultBrowser = "zen.desktop"
 defaultEditor = "dev.zed.Zed.desktop"
 extraPackages = [
+# "cemu", # Wiuu
+  # "duckstation", # PS1
+  # "heroic", # Cross-platform Epic Games Launcher
+  # "pcsx2", # PS2
+  # "ppsspp", # PSP
+  # "prismlauncher", # Minecraft launcher
+  # "rpcs3", # PS3
+  
   "appimage-run",
+  "audacity", # Sound editor with graphical UI
   "blanket",
-  "faugus-launcher",
+  "bottles", # Wine manager
+  "curtail", # Image compressor
+  "discord",
+  "eartag", # Simple music tag editor
   "fragments",
-  "gimp3",
-  "harmony-music",
-  "newsflash",
+  "gimp3", # GNU Image Manipulation Program
+  "gsound", # Small library for playing system sounds (required to show file properties in Nautilus)
+  "handbrake", # Tool for converting video files and ripping DVDs
+  "jetbrains.webstorm", # Professional IDE for Web and JavaScript development
+  "mission-center", # CPU, Memory, Disk, Network and GPU usage monitor
+  "mousai", # Song recognizer
+  "nicotine-plus", # p2p music sharing platform
+  "parabolic", # Download web video and audio
   "signal-desktop",
-  "umu-launcher",
-  "warp",
+  "spek", # Audio file spectrogram analysis
+  "spotify",
+  "sticky-notes", # Simple sticky notes app
+  "whatsapp-electron",
+  "warp", # File sync
 ]
 insecurePackages = []
 
-[icedos.applications.git.users.icedborn]
-username = "IceDBorn"
-email = "git.outsider841@simplelogin.fr"
+[icedos.applications.git.users.jim]
+username = "TheTackledPeanut"
+email = "dimgavridis@gmail.com"
 
 [icedos.applications.mangohud]
 fpsLimit = "144,60,0"
 
-[icedos.applications.network-manager]
-applet = true
-
-[icedos.applications.sd-inhibitor.users.icedborn.watchers.pipewire]
+[icedos.applications.sd-inhibitor.users.jim.watchers.pipewire]
 inputsToIgnore = ["Noise Canceling source", "Peak detect", "cava"]
 outputsToIgnore = ["Discord", "Element"]
 
@@ -109,52 +122,38 @@ outputsToIgnore = ["Discord", "Element"]
 beta = true
 downloadsWorkaround = true
 
-[icedos.applications.wg-quick]
-interfaces = ["protonvpn"]
-
 [[icedos.applications.zen.profiles]]
 default = true
 exec = "default"
-privacy = true
+privacy = false
 
-[[icedos.applications.zen.profiles]]
-exec = "zen-social"
-name = "Zen Social"
-privacy = true
-pwa = true
-sites = [
-  "https://mail.proton.me",
-  "https://lumo.proton.me",
-  "https://develop.element.io",
-  "https://discord.com/app",
+[icedos.desktop.gnome]
+titlebarLayout = "appmenu:minimize,maximize,close"
+
+[icedos.desktop.gnome.extensions]
+arcmenu = true
+dashToPanel = true
+
+[icedos.desktop.gnome.users.jim]
+startupScript = "steam & signal-desktop"
+
+[icedos.desktop.gnome.users.jim.pinnedApps.arcmenu]
+enable = true
+list = ["spotify.desktop"]
+
+[icedos.desktop.gnome.users.stef.pinnedApps.shell]
+enable = true
+list = [
+  "steam.desktop",
+  "discord.desktop",
+  "signal.desktop",
+  "zen.desktop",
 ]
-
-[icedos.applications.zenstates]
-serviceArgs = "-p 0 -v 3C -f A0"
 
 [icedos.desktop]
-autologinUser = "icedborn"
+autologinUser = "jim"
 
-[icedos.desktop.hyprland.settings]
-startupScript = """
-nautilus -w &
-nautilus -w &
-signal-desktop &
-steam &
-zeditor &
-zen-beta --no-remote -P default --name zen-startup &
-zen-social &
-"""
-windowRules = [
-  "workspace 1 silent, class:^(zen-startup)$",
-  "workspace 2 silent, class:^(dev.zed.Zed)$",
-  "workspace 11 silent, class:^(signal|zen-social)$",
-  "workspace 12 silent, class:^(Steam|steam)$, title:^((?!notificationtoasts.*).)*$",
-  "workspace 12 silent, title:^(.*Steam[A-Za-z0-9\\s]*)$",
-  "workspace 13 silent, class:^(org\\.gnome\\.Nautilus)$",
-]
-
-[icedos.desktop.users.icedborn]
+[icedos.desktop.users.jim]
 
 [icedos.hardware.bootloaders.systemd-boot]
 mountPoint = "/boot"
@@ -168,40 +167,23 @@ device = "/dev/disk/by-uuid/e2a8d4bf-b1fc-446f-b347-c3671eda1ccb"
 fsType = "btrfs"
 flags = ["compress=zstd", "nofail", "x-gvfs-show"]
 
-[[icedos.hardware.mounts]]
-path = "/mnt/games"
-device = "/dev/disk/by-uuid/040329ae-685d-4ba6-8bdd-e0a9785f9672"
-fsType = "btrfs"
-flags = ["compress=zstd", "nofail", "x-gvfs-show"]
-
-[[icedos.hardware.mounts]]
-path = "/mnt/games2"
-device = "/dev/disk/by-uuid/60876d91-f863-45db-88c5-4c707879588f"
-fsType = "btrfs"
-flags = ["compress=zstd", "nofail", "x-gvfs-show"]
-
-[[icedos.hardware.mounts]]
-path = "/mnt/storage"
-device = "/dev/disk/by-uuid/89730200-942d-4a5c-893f-0196c87435d2"
-fsType = "btrfs"
-flags = ["compress=zstd", "nofail", "x-gvfs-show"]
 
 [[icedos.hardware.monitors]]
 name = "DP-2"
-resolution = "3440x1440"
-refreshRate = 144
+resolution = "1920x1080"
+refreshRate = 165
 position = "0x0"
 rotation = 0
 
 [[icedos.hardware.monitors]]
 name = "DP-1"
 resolution = "1920x1080"
-refreshRate = 144
-position = "3440x200"
+refreshRate = 60
+position = "1920x0"
 rotation = 0
 
 [icedos.system]
-version = "23.05"
+version = "25.05"
 
-[icedos.users.icedborn]
-description = "IceDBorn"
+[icedos.users.jim]
+description = "Jim"
