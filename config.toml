@@ -1,41 +1,34 @@
 [[icedos.repositories]]
 url = "github:icedos/apps"
 modules = [
-  "bash",
   "btop",
   "celluloid",
   "codium",
-  "direnv",
   "faugus-launcher",
   "flatpak",
   "gamemode",
   "gamescope",
-  "git",
+  "librewolf",
+  "harmony-music",
   "input-remapper",
-  "kitty",
   "lact",
   "lsfg-vk",
   "mangohud",
-  "nautilus",
+  "me3",
   "ncdu",
-  "nh",
-  "nix",
-  "nix-health",
-  "nixfmt",
   "obs",
   "proton-launch",
+  "scx",
   "sd-inhibitor",
-  "ssh",
   "steam",
   "sunshine",
   "toolset",
   "zed",
-  "zsh",
 ]
 
 [[icedos.repositories]]
 url = "github:icedos/desktop"
-modules = ["adwaita-qt", "clear-xdg-portals", "displays", "gdm"]
+modules = ["gdm"]
 
 [[icedos.repositories]]
 url = "github:icedos/hardware"
@@ -73,14 +66,14 @@ modules = ["chaotic"]
 defaultBrowser = "librewolf.desktop"
 defaultEditor = "dev.zed.Zed.desktop"
 extraPackages = [
-# "cemu", # Wiuu
+  # "cemu", # Wiuu
   # "duckstation", # PS1
   # "heroic", # Cross-platform Epic Games Launcher
   # "pcsx2", # PS2
   # "ppsspp", # PSP
   # "prismlauncher", # Minecraft launcher
   # "rpcs3", # PS3
-  
+
   "appimage-run",
   "audacity", # Sound editor with graphical UI
   "blanket",
@@ -106,14 +99,14 @@ extraPackages = [
 insecurePackages = []
 
 [icedos.applications.codium.users.jim]
-autoSave="onFocusChange"
+autoSave = "onFocusChange"
 
 [icedos.applications.git.users.jim]
 username = "TheTackledPeanut"
 email = "dimgavridis@gmail.com"
 
 [icedos.applications.mangohud]
-fpsLimit = "144,60,0"
+fpsLimit = "0,144,60,30"
 
 [icedos.applications.sd-inhibitor.users.jim.watchers.pipewire]
 inputsToIgnore = ["Noise Canceling source", "Peak detect", "cava"]
@@ -121,8 +114,8 @@ outputsToIgnore = ["Discord", "Element"]
 
 [icedos.applications.steam]
 beta = true
+cpuUsageWorkaround = true
 downloadsWorkaround = true
-
 
 [icedos.desktop.gnome]
 titlebarLayout = "appmenu:minimize,maximize,close"
