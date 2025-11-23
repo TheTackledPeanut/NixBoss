@@ -14,7 +14,7 @@ modules = [
   "lact",
   "lsfg-vk",
   "mangohud",
-  "me3",
+  "nautilus",
   "ncdu",
   "obs",
   "proton-launch",
@@ -108,6 +108,13 @@ email = "dimgavridis@gmail.com"
 [icedos.applications.mangohud]
 fpsLimit = "0,144,60,30"
 
+[icedos.applications.nh.gc]
+days = 7 # Number of days before a generation can be deleted
+generations = 5 # Number of generations that will always be kept
+
+[icedos.applications.scx]
+extraArgs = ["--performance"]
+
 [icedos.applications.sd-inhibitor.users.jim.watchers.pipewire]
 inputsToIgnore = ["Noise Canceling source", "Peak detect", "cava"]
 outputsToIgnore = ["Discord", "Element"]
@@ -125,7 +132,7 @@ arcmenu = true
 dashToPanel = true
 
 [icedos.desktop.gnome.users.jim]
-startupScript = "steam & signal-desktop"
+startupScript = "steam & signal-desktop & spotify & librewolf"
 
 [icedos.desktop.gnome.users.jim.pinnedApps.arcmenu]
 enable = true
