@@ -30,7 +30,6 @@ modules = [
   "sunshine",
   "toolset",
   "zed",
-  "zen",
   "zsh",
 ]
 
@@ -71,7 +70,7 @@ url = "github:icedos/providers"
 modules = ["chaotic"]
 
 [icedos.applications]
-defaultBrowser = "zen.desktop"
+defaultBrowser = "librewolf.desktop"
 defaultEditor = "dev.zed.Zed.desktop"
 extraPackages = [
 # "cemu", # Wiuu
@@ -102,10 +101,12 @@ extraPackages = [
   "spek", # Audio file spectrogram analysis
   "spotify",
   "sticky-notes", # Simple sticky notes app
-  "whatsapp-electron",
   "warp", # File sync
 ]
 insecurePackages = []
+
+[icedos.applications.codium.users.jim]
+autoSave="onFocusChange"
 
 [icedos.applications.git.users.jim]
 username = "TheTackledPeanut"
@@ -122,10 +123,6 @@ outputsToIgnore = ["Discord", "Element"]
 beta = true
 downloadsWorkaround = true
 
-[[icedos.applications.zen.profiles]]
-default = true
-exec = "default"
-privacy = false
 
 [icedos.desktop.gnome]
 titlebarLayout = "appmenu:minimize,maximize,close"
@@ -147,7 +144,7 @@ list = [
   "steam.desktop",
   "discord.desktop",
   "signal.desktop",
-  "zen.desktop",
+  "librewolf.desktop",
 ]
 
 [icedos.desktop]
@@ -159,27 +156,26 @@ autologinUser = "jim"
 mountPoint = "/boot"
 
 [icedos.hardware.kernel]
-version = "cachyos"
+version = "latest"
 
 [[icedos.hardware.mounts]]
 path = "/"
-device = "/dev/disk/by-uuid/e2a8d4bf-b1fc-446f-b347-c3671eda1ccb"
+device = "/dev/disk/by-uuid/7762c723-93db-4a5b-8bea-3546ec37f3d4"
 fsType = "btrfs"
 flags = ["compress=zstd", "nofail", "x-gvfs-show"]
-
 
 [[icedos.hardware.monitors]]
 name = "DP-2"
 resolution = "1920x1080"
-refreshRate = 165
-position = "0x0"
+refreshRate = 164.955
+position = "1920x0"
 rotation = 0
 
 [[icedos.hardware.monitors]]
-name = "DP-1"
+name = "HDMI-1"
 resolution = "1920x1080"
 refreshRate = 60
-position = "1920x0"
+position = "0x0"
 rotation = 0
 
 [icedos.system]
