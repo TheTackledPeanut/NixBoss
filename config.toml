@@ -131,7 +131,7 @@ startupScript = "steam & signal-desktop"
 enable = true
 list = ["spotify.desktop"]
 
-[icedos.desktop.gnome.users.stef.pinnedApps.shell]
+[icedos.desktop.gnome.users.jim.pinnedApps.shell]
 enable = true
 list = [
   "steam.desktop",
